@@ -1,28 +1,32 @@
 {%extends 'indice/index.html' %}
 
 {% block title %}
-<title>FORMULARIO</title>
+<title>Form</title>
 {% endblock title %}
 
 
-{% block prueba %}
+{% block header %}
 
      <div class="container">
-        <form action="" method="post">
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Username</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        <form action=" {%url 'formulario'%}" method="post">
+            {% csrf_token %}
+            {% comment %} <div class="mb-3">
+                <label  class="form-label">Name</label>
+                <input type="text" class="form-control" name="nombre" >
             </div>
             <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1">
-                <div id="emailHelp" class="form-text">No compartas tu contraseña con nadie.</div>
+                <label class="form-label">Last Name</label>
+                <input type="text" class="form-control" name="apellido">
             </div>
-            <div class="mb-3 form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                <label class="form-check-label" for="exampleCheck1">Check me out</label>
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
+            <div class="mb-3">
+                <label class="form-label">E-mail</label>
+                <input type="email" aria-describedby="emailHelp" class="form-control" name="email">
+            </div> {% endcomment %}
+            <table>
+                {{formulario.as_table}}
+            </table>
+       
+            <button type="submit" class="btn btn-primary">Send</button>
+        </form>
     </div>
-{% endblock prueba %}
+{% endblock header %}

@@ -9,6 +9,8 @@ class Usuario (models.Model):
     apellido = models.CharField(max_length=50)
     email = models.EmailField(max_length=20)
 
+    def __str__(self):
+        return f" Nombre: {self.nombre} - Apellido: {self.apellido} - E-mail: {self.email}"
 
 class Posteo (models.Model):
     numero = models.IntegerField

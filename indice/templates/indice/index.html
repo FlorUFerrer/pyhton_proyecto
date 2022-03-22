@@ -8,7 +8,7 @@
         <meta name="author" content="" />
         {% block title %}
         {% endblock title %}
-        <title>Landing Page - Start Bootstrap Theme</title>
+        <title>Home</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href= {% static "assets/favicon.ico"%} />
         <!-- Bootstrap icons-->
@@ -28,6 +28,7 @@
                 <a class="navbar-brand" href= {% url 'usuario' %}>User</a>
                 <a class="navbar-brand" href="#!">Publications</a>
                 <a class="navbar-brand" href= {% url 'formulario' %}>Form</a>
+                <a class="navbar-brand" href= {% url 'busqueda' %}>Search</a>
                 <a class="btn btn-primary" href="#signup">Login</a>
             </div>
         </nav>
@@ -46,10 +47,13 @@
             </div>
         </header>
 
-        {% block prueba %}
+        {% block header %}
         
-        
-        {% endblock prueba %}
+        <div>
+           ESTE ES EL HOME 
+        </div>
+
+        {% endblock header %}
 
 
 
@@ -68,7 +72,7 @@
                             <li class="list-inline-item">⋅</li>
                             <li class="list-inline-item"><a href="#!">Privacy Policy</a></li>
                         </ul>
-                        <p class="text-muted small mb-4 mb-lg-0">&copy; Your Website 2021. All Rights Reserved.</p>
+                        <p class="text-muted small mb-4 mb-lg-0">&copy; Have a nice day Website 2022. All Rights Reserved.</p>
                     </div>
                     <div class="col-lg-6 h-100 text-center text-lg-end my-auto">
                         <ul class="list-inline mb-0">
