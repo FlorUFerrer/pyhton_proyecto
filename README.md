@@ -1,4 +1,4 @@
-# # Blog gatitos
+# # Blog pet
 
 El Blog gatitos tiene rutas a diferentes paginas
 
