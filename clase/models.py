@@ -17,3 +17,7 @@ class Posteo (models.Model):
     titulo = models.CharField(max_length=50)
     texto = models.CharField(max_length=300)
 
+class Mascota (models.Model):
+    nombre = models.IntegerField
+    edad = models.CharField(max_length=5)
+    

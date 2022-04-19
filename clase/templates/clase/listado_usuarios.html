@@ -1,0 +1,21 @@
+{%extends 'indice/index.html' %}
+
+{% block title %}
+<title>Usuarios</title>
+{% endblock title %}
+
+
+{% block header %}
+
+  <a href= {%url 'crear_usuario'%}>Crear Usuario</a>
+ 
+        {% for usuario in listado_usuarios %}
+            <li>
+                {{usuario}}
+            </li>
+           
+        {% endfor %}
+   
+
+
+{% endblock header %}

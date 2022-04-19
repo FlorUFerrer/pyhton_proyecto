@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render , redirect
 from clase.models import Usuario
 from clase.forms import BusquedaUsuario, UsuarioFormulario
 
@@ -38,4 +38,32 @@ def busqueda(request):
         email_buscado = Usuario.objects.filter(email__icontains = dato)
 
     buscador = BusquedaUsuario()
-    return render (request, "clase/busqueda.html", {'buscador':buscador , 'email_buscado':email_buscado , 'dato':dato})
+    return render (
+        request, "clase/busqueda.html", 
+        {'buscador':buscador , 'email_buscado':email_buscado , 'dato':dato}
+    )
+
+
+#CRUD
+def listado_usuarios(request):
+    listado_usuarios = Usuario.objects.all()
+    return render (
+        request, "clase/listado_usuarios.html", 
+        {'listado_usuarios':listado_usuarios}
+    )
+
+def crear_usuario(request):
+    if request.method == 'POST':
+             formulario = UsuarioFormulario(request.POST)
+             if formulario.is_valid():
+                 data= formulario.cleaned_data   
+                 nuevo_usuario = Usuario(nombre = data['nombre'], apellido = data['apellido'], email= data['email'])   
+                 nuevo_usuario.save()  
+             #return render(request, 'clase/listado_usuario.html')  
+             return redirect('listado_usuarios')
+                
+    formulario = UsuarioFormulario()
+    return render(
+        request, 'clase/crear_usuario.html',
+        {'formulario' : formulario}
+    )
