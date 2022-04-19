@@ -59,7 +59,6 @@ def crear_usuario(request):
                  data= formulario.cleaned_data   
                  nuevo_usuario = Usuario(nombre = data['nombre'], apellido = data['apellido'], email= data['email'])   
                  nuevo_usuario.save()  
-             #return render(request, 'clase/listado_usuario.html')  
              return redirect('listado_usuarios')
                 
     formulario = UsuarioFormulario()
@@ -67,3 +66,20 @@ def crear_usuario(request):
         request, 'clase/crear_usuario.html',
         {'formulario' : formulario}
     )
+
+
+def actualizar_usuario(request):
+    #  if request.method == 'POST':
+    #          formulario = UsuarioFormulario(request.POST)
+    #          if formulario.is_valid():
+    #              data= formulario.cleaned_data   
+    #              nuevo_usuario = Usuario(nombre = data['nombre'], apellido = data['apellido'], email= data['email'])   
+    #              nuevo_usuario.save()  
+    #          return redirect('listado_usuarios')
+                
+    # formulario = UsuarioFormulario()
+    # return render(
+    #     request, 'clase/crear_usuario.html',
+    #     {'formulario' : formulario}
+    # )
+    return
