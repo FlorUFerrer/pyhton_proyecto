@@ -1,0 +1,18 @@
+{%extends 'indice/index.html' %}
+
+{% block title %}
+<title>Posteos</title>
+{% endblock title %}
+
+
+{% block header %}
+
+
+       <form method ="post">
+           {% csrf_token %}
+        Confirma el borrrar?
+        <input type= "submit" value="Confirmo">
+    </form>
+
+
+{% endblock header %}

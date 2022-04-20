@@ -1,0 +1,29 @@
+{%extends 'indice/index.html' %}
+
+{% block title %}
+<title>Posteos</title>
+{% endblock title %}
+
+
+{% block header %}
+
+        <p>
+
+            <a href= {% url 'posteo_crear' %}>Crear posteo</a>    
+        </p>
+            
+        {% for posteo in object_list %}
+            <li>
+                {{posteo}}
+                <a href= {% url 'posteo_detalle' posteo.id %}>Ver más</a>    
+                <a href= {% url 'posteo_editar' posteo.id %}>Editar</a>    
+                <a href= {% url 'posteo_borrar' posteo.id %}>Borrar</a>    
+            
+            
+                
+            </li>
+        {% endfor %}
+   
+
+
+{% endblock header %}

@@ -16,6 +16,11 @@ class Posteo (models.Model):
     numero = models.IntegerField
     titulo = models.CharField(max_length=50)
     texto = models.CharField(max_length=300)
+ 
+  
+
+    def __str__(self):
+        return f" {self.titulo} - Mi posteo: {self.texto}"
 
 class Mascota (models.Model):
     nombre = models.IntegerField

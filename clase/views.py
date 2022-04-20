@@ -1,7 +1,11 @@
+from sre_constants import SUCCESS
 from django.http import HttpResponse
 from django.shortcuts import render , redirect
-from clase.models import Usuario
-from clase.forms import BusquedaUsuario, UsuarioFormulario
+from clase.models import Usuario, Posteo
+from clase.forms import BusquedaUsuario, UsuarioFormulario 
+from django.views.generic import ListView , DetailView
+from django.views.generic.edit import UpdateView , DeleteView , CreateView
+
 
 # Create your views here.
 
@@ -20,16 +24,6 @@ def formulario (request):
              return render(request, 'indice/usuario.html',{'nuevo_usuario': nuevo_usuario})     
         formulario = UsuarioFormulario()
         return render(request, 'clase/formulario.html',{'formulario' : formulario})
-    #SIN FORMULARIO DE DJANGO
-    #   if request.method == 'POST':
-    #     print(request.POST)
-    #     nuevo_usuario = Usuario(nombre =request.POST['nombre'], apellido = request.POST['apellido'], email= request.POST['email'])    
-    #     nuevo_usuario.save()  
-    #     return render(request, 'indice/usuario.html',{'nuevo_usuario': nuevo_usuario})
-    #   return render(request, 'clase/formulario.html',{})
-    #Con formulario de django
-
-
 
 def busqueda(request):
     email_buscado = []
@@ -99,3 +93,36 @@ def borrar_usuario (request , id):
      usuario = Usuario.objects.get(id = id)
      usuario.delete()
      return redirect('listado_usuarios')
+
+
+
+
+# class Posteo (models.Model):
+#     numero = models.IntegerField
+#     titulo = models.CharField(max_length=50)
+#     texto = models.CharField(max_length=300)
+
+class Posteos(ListView):
+    model = Posteo
+    template_name = 'clase/posteos.html'
+
+
+class PosteoDetalle(DetailView):
+    model = Posteo
+    template_name = 'clase/posteo_datos.html'
+
+class PosteoCrear(CreateView):
+    model = Posteo
+    success_url = '/clase/posteos'
+    fields =[ 'titulo' , 'texto']
+
+class PosteoEditar(UpdateView):
+    model = Posteo
+    success_url = '/clase/posteos'
+    fields =[ 'titulo' , 'texto']
+
+
+class PosteoBorrar(DeleteView):
+    model = Posteo
+    success_url= '/clase/posteos'
+   

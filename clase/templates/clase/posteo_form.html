@@ -1,0 +1,17 @@
+{%extends 'indice/index.html' %}
+
+{% block title %}
+<title>Editar Posteo</title>
+{% endblock title %}
+
+
+{% block header %}
+
+     <div class="container">
+        <form  method="post">
+            {% csrf_token %}
+            {{form.as_p}}
+          <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+    </div>
+{% endblock header %}
