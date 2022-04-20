@@ -100,7 +100,7 @@ def borrar_usuario (request , id):
 
 
 
-class Posteos( LoginRequiredMixin ,ListView):
+class Posteos(ListView):
     model = Posteo
     template_name = 'clase/posteos.html'
 

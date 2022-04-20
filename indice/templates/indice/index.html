@@ -26,12 +26,11 @@
             <div class="container">
                 <a class="navbar-brand" href={% url 'inicio' %}>Inicio</a>
                 <a class="navbar-brand" href= {% url 'about' %}>Acerca de mí</a>
-                <a class="navbar-brand" href= >Blogs</a>
-                <a class="navbar-brand" href= '#' {% url 'usuario' %}>Perfil</a>
-                <a class="navbar-brand" href= {% url 'listado_usuarios' %}>Usuarios</a>
+                <a class="navbar-brand" href= {% url 'listado_usuarios' %}>Lista usuarios</a>
+                <a class="navbar-brand" href={% url 'posteos' %}>Posteos</a>
                 <a class="navbar-brand" href= {% url 'busqueda' %}>Buscar</a>
                 {% if request.user.is_authenticated %}
-                    <a class="navbar-brand" href={% url 'posteos' %}>Publicaciones</a>
+                    <a class="navbar-brand" href= '#' {% url 'usuario' %}>Perfil</a>
                     <a class="navbar-brand" href= {% url 'editar_usuario' %}>
                         <img src="{{url_avatar}}" alt="avatar" height ='40'>
                     </a>

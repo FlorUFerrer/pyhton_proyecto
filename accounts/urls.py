@@ -6,6 +6,6 @@ urlpatterns = [
   
     path('registrar/', registrar, name = 'registrar'),
     path('login/', UsuarioLogin, name = 'login'),
-    path('logout/', LogoutView.as_view(template_name ='indice/index.html'), name = 'logout'),
+    path('logout/', LogoutView.as_view(template_name ='accounts/logout.html'), name = 'logout'),
  
 ]

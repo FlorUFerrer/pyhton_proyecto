@@ -17,6 +17,7 @@ class Usuario (models.Model):
 class Posteo (models.Model):
     numero = models.IntegerField
     titulo = models.CharField(max_length=50)
+    #subtitulo = models.CharField(max_length=50)
     texto = models.CharField(max_length=300)
  
   
