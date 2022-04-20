@@ -70,6 +70,10 @@
   box-sizing: border-box;
 }
 
+
+
+
+
 @media (prefers-reduced-motion: no-preference) {
   :root {
     scroll-behavior: smooth;
@@ -3027,6 +3031,7 @@ textarea.form-control-lg {
   pointer-events: none;
   opacity: 0.65;
 }
+
 
 .btn-primary {
   color: #fff;
@@ -11379,3 +11384,5 @@ footer.footer {
   padding-top: 4rem;
   padding-bottom: 4rem;
 }
+
+

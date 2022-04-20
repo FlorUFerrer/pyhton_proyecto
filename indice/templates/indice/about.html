@@ -6,13 +6,39 @@
 
 {% block header %}
 
-    <div>
+    <div class="fondoAboutme">
+        <h1 class="title">
+              About me
         <h1>
-            About me
-        <h1>
-
-
-
+            <div class="container container-font">
+                <div>
+                    <p>My name is Florencia</p>
+                    <img class="me-photo" src="../../static/assets/img/me.jpg" alt="me"></> 
+                </div>
+                <div>
+                    <p>My favorite color is <span>red</span>.</p>
+                    <img  class="imgCard" src="../../static/assets/img/lapiz.png" alt="pencil"></>
+                </div>
+                <div>
+                    <img class="dog" src="../../static/assets/img/tommy.jpeg" alt="dog"></>
+                    <p>My pet's name is Tommy.</p>
+                </div>
+                <div>
+                    <p>This is loli my rescued kitten.</p>
+                    <img class="cat" src="../../static/assets/img/loli.jpeg" alt="cat"></>
+                </div>
+            </div>
+            <div class="walker">
+                <p>I am a dog walker and this is my pack of dogs.</p>
+                <video controls autoplay loop muted  class="video">
+                    <source class="source" src="../../static/assets/img/dogs.mp4" type="video/mp4"> 
+                </video>
+            </div>
+            <div class="study">
+                
+               <p>I'm studying web programming at Coder House.</p>
+              <p> I like web programming, I feel that it is a great possibility for the new technological world that we are going through.</p>
+            </div>
     </div>
 
 {% endblock header %}
