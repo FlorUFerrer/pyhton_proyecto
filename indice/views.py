@@ -5,10 +5,11 @@ from django.contrib.auth import login , authenticate
 from django.contrib.auth.forms import AuthenticationForm , UserCreationForm
 from .forms import CreacionUser , EditarUser
 from django.contrib.auth.decorators import login_required
+from .models import Avatar
 
 
 def inicio(request):
-   return render(request,'indice/index.html',{})
+   return render(request,'indice/index.html',{'url_avatar' : buscar_url_avatar(request.user)})
 
 def usuario(request):
        return render(request,'indice/usuario.html',{})   
@@ -76,9 +77,9 @@ def UsuarioEditar(request):
                    
              logued_user.save()
           
-             return render(request , 'indice/index.html', {'msj': msj })
+             return render(request , 'indice/index.html', {'msj': msj ,'url_avatar' : buscar_url_avatar(request.user)})
        else:
-           return render(request , 'indice/editar_usuario.html', {'form': form , 'msj': ' '})       
+           return render(request , 'indice/editar_usuario.html', {'form': form , 'msj': ' ','url_avatar' : buscar_url_avatar(request.user)})       
 
    form = EditarUser(
           initial={
@@ -88,5 +89,10 @@ def UsuarioEditar(request):
             'username': request.user.username
         }
    )    
-   return  render(request , 'indice/editar_usuario.html', {'form': form , 'msj': 'Datos actualizados'})  
+   return  render(request , 'indice/editar_usuario.html', {'form': form , 'msj': 'Datos actualizados','url_avatar' : buscar_url_avatar(request.user)})  
     
+
+
+
+def buscar_url_avatar(user):
+     return Avatar.objects.filter(user=user)[0].imagen.url  
