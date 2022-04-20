@@ -1,6 +1,5 @@
 
 from django.urls import path
-#from .views import nuevo_usuario , formulario , busqueda ,usuarios
 from . import views
 urlpatterns = [
     path('usser_new/',views.nuevo_usuario, name='nuevo_usuario'),
