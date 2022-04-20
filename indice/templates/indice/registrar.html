@@ -1,0 +1,17 @@
+{%extends 'indice/index.html' %}
+
+
+{% block header %}
+        <div>ACA ABAJO HAY UN FORMULARIO DE DJANGO</div>
+  
+        {% if msj  %}
+            {{msj}}
+        {% endif %}
+        <form action="" method="post">
+            {% csrf_token %}
+            {{form.as_p}}
+            <button class="btn btn-primary">Registrarse</button>
+        </form>
+ 
+
+{% endblock header %}

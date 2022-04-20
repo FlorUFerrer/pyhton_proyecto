@@ -5,6 +5,8 @@ from clase.models import Usuario, Posteo
 from clase.forms import BusquedaUsuario, UsuarioFormulario 
 from django.views.generic import ListView , DetailView
 from django.views.generic.edit import UpdateView , DeleteView , CreateView
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
 
@@ -45,6 +47,8 @@ def listado_usuarios(request):
         {'listado_usuarios':listado_usuarios}
     )
 
+
+@login_required
 def crear_usuario(request):
     if request.method == 'POST':
              formulario = UsuarioFormulario(request.POST)
@@ -59,6 +63,7 @@ def crear_usuario(request):
         request, 'clase/crear_usuario.html',
         {'formulario' : formulario}
     )
+
 
 
 def actualizar_usuario(request , id):
@@ -95,7 +100,7 @@ def borrar_usuario (request , id):
 
 
 
-class Posteos(ListView):
+class Posteos(LoginRequiredMixin ,ListView):
     model = Posteo
     template_name = 'clase/posteos.html'
 

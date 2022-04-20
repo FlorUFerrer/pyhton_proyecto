@@ -1,7 +1,8 @@
 from django.http import HttpResponse
 from django.shortcuts import render ,redirect
 from django.contrib.auth import login , authenticate
-from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.forms import AuthenticationForm , UserCreationForm
+from .forms import CreacionUser
 
 
 def inicio(request):
@@ -24,7 +25,7 @@ def UsuarioLogin(request):
 
               if user is not None:
                      login(request, user)
-                     return render(request , 'indice/index.html', {'msj': 'Estas logueado!'})
+                     return render(request , 'indice/index.html', {'msj': 'Estas logueado !'})
               else:
                 return render(request , 'indice/login.html', {'form': form ,'msj': 'No se autenticó'})           
        else:
@@ -35,3 +36,17 @@ def UsuarioLogin(request):
     
 
 
+def registrar(request):
+
+   if request.method =='POST':    
+       form = CreacionUser(request.POST)
+
+       if form.is_valid():
+             username = form.cleaned_data['username']
+             form.save()
+             return render(request , 'indice/index.html', {'msj': f'Se creo el user '})
+       else:
+           return render(request , 'indice/registrar.html', {'form': form , 'msj': 'Datos incorrectos'})       
+
+   form = CreacionUser()    
+   return  render(request , 'indice/registrar.html', {'form': form , 'msj': ''})  
