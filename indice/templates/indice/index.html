@@ -25,13 +25,14 @@
         <nav class="navbar navbar-light bg-light static-top">
             <div class="container">
                 <a class="navbar-brand" href={% url 'inicio' %}>Inicio</a>
-                <a class="navbar-brand" href= {% url 'about' %}>Acerca de mí</a>
+                <a class="navbar-brand" href= {% url 'sobre-mi' %}>Acerca de mí</a>
                 <a class="navbar-brand" href= {% url 'usuario' %}>Usuario</a>
                 <a class="navbar-brand" href= {% url 'listado_usuarios' %}>Usuarios</a>
                 <a class="navbar-brand" href={% url 'posteos' %}>Publicaciones</a>
-                <a class="navbar-brand" href= {% url 'crear_usuario' %}>Registrar</a>
+               
                 <a class="navbar-brand" href= {% url 'busqueda' %}>Buscar</a>
-                <a class="btn btn-primary" href="#signup">Login</a>
+                <a class="btn btn-primary" href={% url 'login' %}>Login</a>
+                <a class="btn btn-primary" href={% url 'logout' %}>Logout</a>
             </div>
         </nav>
         <!-- Masthead-->
@@ -50,6 +51,14 @@
         </header>
 
         {% block header %}
+
+        <h1 class="mb-5">
+            {%if msj %}
+                {{msj}} 
+            {%else%}
+                Bienvenidos!
+            {%endif%}
+        </h1>
         
         <div class="home">
             <p>

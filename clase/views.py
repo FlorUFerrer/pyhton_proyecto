@@ -6,7 +6,6 @@ from clase.forms import BusquedaUsuario, UsuarioFormulario
 from django.views.generic import ListView , DetailView
 from django.views.generic.edit import UpdateView , DeleteView , CreateView
 
-
 # Create your views here.
 
 def nuevo_usuario(request):
@@ -96,12 +95,6 @@ def borrar_usuario (request , id):
 
 
 
-
-# class Posteo (models.Model):
-#     numero = models.IntegerField
-#     titulo = models.CharField(max_length=50)
-#     texto = models.CharField(max_length=300)
-
 class Posteos(ListView):
     model = Posteo
     template_name = 'clase/posteos.html'
@@ -111,10 +104,12 @@ class PosteoDetalle(DetailView):
     model = Posteo
     template_name = 'clase/posteo_datos.html'
 
+
 class PosteoCrear(CreateView):
     model = Posteo
     success_url = '/clase/posteos'
     fields =[ 'titulo' , 'texto']
+
 
 class PosteoEditar(UpdateView):
     model = Posteo

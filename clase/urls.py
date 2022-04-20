@@ -10,7 +10,7 @@ urlpatterns = [
     path('usuarios/', views.listado_usuarios, name ='listado_usuarios'),
     path('usuario/registrar/', views.crear_usuario, name ='crear_usuario'),
     path('usuario/borrar/<int:id>/', views.borrar_usuario, name ='borrar_usuario'),
-    path('usuario/actualizar/<int:id>/', views.actualizar_usuario, name ='actualizar_usuario'),
+    path('usuario/actualizar/<int:pk>/', views.actualizar_usuario, name ='actualizar_usuario'),
    
     path('posteos/',views.Posteos.as_view() , name = 'posteos'),
     path('posteos/crear/',views.PosteoCrear.as_view() , name = 'posteo_crear'),

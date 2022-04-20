@@ -1,9 +1,9 @@
--py manage.py makemigrations (le explica  ala base de datos como funcionar)
+-py manage.py makemigrations (le explica  a la base de datos como funcionar)
 - py manage.py migrate  , subir clases a base de datos
 -venv/scrips/activate
 -python manage.py runserver
 
 -TRABAJAR CON HERENCIAS
--DERICCIONAMIENTOS
+-DERECCIONAMIENTOS
 -ADMIN
 -CLASES
