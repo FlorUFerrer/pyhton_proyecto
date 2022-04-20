@@ -10,6 +10,6 @@ urlpatterns = [
     path('usuarios/', views.listado_usuarios, name ='listado_usuarios'),
     # path('usuario', views.usuario, name ='usuario'),
     path('usuario/registrar/', views.crear_usuario, name ='crear_usuario'),
-    # path('usuario/borrar', views.borrar_usuario, name ='borrar_usuario'),
+    path('usuario/borrar/<int:id>/', views.borrar_usuario, name ='borrar_usuario'),
     path('usuario/actualizar/<int:id>/', views.actualizar_usuario, name ='actualizar_usuario')
 ]

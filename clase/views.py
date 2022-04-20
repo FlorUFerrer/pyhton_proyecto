@@ -94,3 +94,8 @@ def actualizar_usuario(request , id):
         {'formulario' : formulario, 'usuario' : usuario}
     )
    
+
+def borrar_usuario (request , id):
+     usuario = Usuario.objects.get(id = id)
+     usuario.delete()
+     return redirect('listado_usuarios')
