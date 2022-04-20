@@ -68,18 +68,29 @@ def crear_usuario(request):
     )
 
 
-def actualizar_usuario(request):
-    #  if request.method == 'POST':
-    #          formulario = UsuarioFormulario(request.POST)
-    #          if formulario.is_valid():
-    #              data= formulario.cleaned_data   
-    #              nuevo_usuario = Usuario(nombre = data['nombre'], apellido = data['apellido'], email= data['email'])   
-    #              nuevo_usuario.save()  
-    #          return redirect('listado_usuarios')
+def actualizar_usuario(request , id):
+
+    usuario = Usuario.objects.get(id = id)
+
+    if request.method == 'POST':
+             formulario = UsuarioFormulario(request.POST)
+             if formulario.is_valid():
+                 data= formulario.cleaned_data   
+                 usuario.nombre = data ['nombre']
+                 usuario.apellido = data ['apellido']
+                 usuario.email = data ['email']
+                 usuario.save()  
+             return redirect('listado_usuarios')
                 
-    # formulario = UsuarioFormulario()
-    # return render(
-    #     request, 'clase/crear_usuario.html',
-    #     {'formulario' : formulario}
-    # )
-    return
+    formulario = UsuarioFormulario( 
+        initial ={
+            'nombre' : usuario.nombre,
+            'apellido' : usuario.apellido,
+            'email' : usuario.email
+        }
+    )
+    return render(
+        request, 'clase/actualizar_usuario.html',
+        {'formulario' : formulario, 'usuario' : usuario}
+    )
+   

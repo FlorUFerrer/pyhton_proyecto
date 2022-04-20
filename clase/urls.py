@@ -11,5 +11,5 @@ urlpatterns = [
     # path('usuario', views.usuario, name ='usuario'),
     path('usuario/registrar/', views.crear_usuario, name ='crear_usuario'),
     # path('usuario/borrar', views.borrar_usuario, name ='borrar_usuario'),
-    path('usuario/actualizar', views.actualizar_usuario, name ='actualizar_usuario')
+    path('usuario/actualizar/<int:id>/', views.actualizar_usuario, name ='actualizar_usuario')
 ]

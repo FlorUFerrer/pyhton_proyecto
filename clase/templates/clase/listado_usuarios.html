@@ -12,8 +12,10 @@
         {% for usuario in listado_usuarios %}
             <li>
                 {{usuario}}
+               <a href= {%url 'actualizar_usuario' usuario.id%}>Editar</a>     
+               
+                
             </li>
-           
         {% endfor %}
    
 
