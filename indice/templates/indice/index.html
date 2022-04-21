@@ -19,6 +19,7 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href={% static "css/styles.css" %} rel="stylesheet" />
         <link href={% static "css/main.css" %} rel="stylesheet" />
+      
      
     </head>
     <body>
@@ -54,11 +55,15 @@
                   <li class="nav-item">
                       <a class="navbar-brand" href={% url 'logout' %}>Logout</a>
                  </li>
-                  <li class="nav-item">
-                      <a class="navbar-brand" href= {% url 'editar_usuario' %}>
-                          <img  src="{{url_avatar}}" alt="avatar" class="avatar" >
-                      </a>
-                  </li>
+                 <li class="nav-item">
+                     <a class="navbar-brand" href= {% url 'editar_usuario' %}>
+                         {% if  url_avatar%}
+                              <img  src="{{url_avatar}}" alt="avatar" class="avatar" >
+                          {% else %}
+                              <img  src="../../media/avatares/gato.png" alt="avatar" class="avatar" >
+                          {% endif %}
+                        </a>
+                    </li>
                 {% else %}
              
                 <li class="nav-item">

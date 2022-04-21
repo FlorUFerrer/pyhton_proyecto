@@ -32,7 +32,8 @@ class PosteoBlog (models.Model):
     autor = models.CharField(max_length=30)
     date = models.DateField()
     texto = RichTextField(blank=True , null=True )
-    image = models.ImageField(upload_to='images/', null=True, blank=True)
+    image = models.ImageField(upload_to='images', null=True, blank=True)
+    
     
     def __str__(self):
             return f"{self.titulo} {self.texto} {self.date}{self.image} {self.mascota}"

@@ -13,10 +13,10 @@
   <div class="container-post">
       <div class="container-card">
         <div class="card" >
-              <form  method="post" class="form_editar">
+              <form  method="post" class="form_editar" enctype="multipart/form-data">
                 <p>DATE:AÑO/MES/DIA</p>
-                {% csrf_token %}
-                {{form.as_p}}
+                    {% csrf_token %}
+                    {{form.as_p}}
                     {{form.media}}
                   <button type="submit" class="btn btn-primary">Enviar</button>
               </form>

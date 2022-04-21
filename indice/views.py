@@ -58,7 +58,8 @@ def UsuarioEditar(request):
             'first_name': request.user.first_name,
             'last_name': request.user.last_name,
             'email': request.user.email,
-            'username': request.user.username
+            'username': request.user.username,
+           
         }
    )    
    return  render(request , 'indice/editar_usuario.html', {'form': form , 'msj': 'Datos actualizados','url_avatar' :  usuario_avatar(request)})  

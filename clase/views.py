@@ -37,7 +37,7 @@ def busqueda(request):
     buscador = BusquedaUsuario()
     return render (
         request, "clase/busqueda.html", 
-        {'buscador':buscador , 'email_buscado':email_buscado , 'dato':dato}
+        {'buscador':buscador , 'email_buscado':email_buscado , 'dato':dato , 'url_avatar' : usuario_avatar(request)}
     )
 
 
@@ -63,7 +63,7 @@ def crear_usuario(request):
     formulario = UsuarioFormulario()
     return render(
         request, 'clase/crear_usuario.html',
-        {'formulario' : formulario}
+        {'formulario' : formulario , 'url_avatar' : usuario_avatar(request)}
     )
 
 
@@ -158,88 +158,3 @@ def crear_blog(request):
     )
 
 
-
-
-
-
-# class Blog(ListView):
-#     model = PosteoBlog
-#     template_name = 'clase/blog.html'
-
-# class BlogDetalle(DetailView):
-#     model = PosteoBlog
-#     template_name = 'clase/blog_datos.html'
-
-
-# class BlogEditar(UpdateView):
-#     model = PosteoBlog
-#     success_url = '/clase/blog'
-#     fields =[ 'titulo' , 'texto']
-
-
-# class BlogBorrar(DeleteView):
-#     model = PosteoBlog
-#     success_url= '/clase/blog'
-
-
-
-
-
-########################POSTEO BLOG#########################################
-
-
-# @login_required
-# def crear_blog(request):
-#     if request.method == 'POST':
-#         form = FormularioBlog(request.POST, request.FILES)
-        
-#         if form.is_valid():
-#             data = form.cleaned_data
-#             blog = PosteoBlog(titulo=data['titulo'], subtitulo=data['subtitulo'], mascota=request.user.username, date=datetime.date.today(), texto=data['texto'], imagen=data['imagen'])
-#             blog.save()
-#             return redirect('inicio')
-    
-#     form = FormularioBlog()
-#     return render(request, "clase/blog.html", {'form': form, 'url_avatar' :  usuario_avatar(request)})
-
-# class BlogDetalle(DetailView):
-#     model = PosteoBlog
-#     template_name = "index/blog.html"
-    
-#     def get_context_data(self, **kwargs):
-#         context = super().get_context_data(**kwargs)
-#         context['url_avatar'] = usuario_avatar(self.request)
-#         return context
-
-
-# class BlogEditar(UpdateView):
-#     model = PosteoBlog
-#     success_url = '/pages'
-#     fields = ['titulo', 'subtitulo', 'texto', 'imagen']        
-    
-#     def get_context_data(self, **kwargs):
-#         context = super().get_context_data(**kwargs)
-        
-#         query_set = self.get_object()
-#         if(query_set.image):
-#             context['blog_image'] = query_set.image.url
-
-#         context['url_avatar'] = usuario_avatar(self.request)
-#         context['form'].fields['titulo'].label = 'Título'
-#         context['form'].fields['subtitulo'].label = 'Subtítulo'
-#         context['form'].fields['texto'].label = 'Contenido'
-#         context['form'].fields['imagen'].label = 'Imagen'
-#         # context['form'].fields['image'].widget.clear_checkbox_label = 'Eliminar'
-#         # context['form'].fields['image'].widget.initial_text = 'Imagen actual'
-#         # context['form'].fields['image'].widget.input_text = 'Cambiar'
-#         return context
-
-
-# class BlogBorrar(DeleteView):
-#     model = PosteoBlog
-#     success_url = '/pages'
-    
-#     def get_context_data(self, **kwargs):
-#         context = super().get_context_data(**kwargs)
-#         context['url_avatar'] = usuario_avatar(self.request)
-#         return context
