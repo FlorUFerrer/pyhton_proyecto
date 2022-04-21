@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'indice',
     'clase',
     'accounts',
-    
+    'ckeditor',
 ]
 
 MIDDLEWARE = [

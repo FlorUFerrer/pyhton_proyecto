@@ -11,10 +11,13 @@ urlpatterns = [
     path('usuario/borrar/<int:id>/', views.borrar_usuario, name ='borrar_usuario'),
     path('usuario/actualizar/<int:pk>/', views.actualizar_usuario, name ='actualizar_usuario'),
    
-    path('posteos/',views.Posteos.as_view() , name = 'posteos'),
-    path('posteos/crear/',views.PosteoCrear.as_view() , name = 'posteo_crear'),
-    path('posteos/<int:pk>',views.PosteoDetalle.as_view() , name = 'posteo_detalle'),
-    path('posteos/<int:pk>/editar',views.PosteoEditar.as_view() , name = 'posteo_editar'),
-    path('posteos/<int:pk>/borrar/',views.PosteoBorrar.as_view() , name = 'posteo_borrar')
+   
+     
+     path('blogs/',views.Blogs.as_view() , name = 'blogs'),
+     path('blogs/crear/',views.BlogCrear.as_view() , name = 'blog_crear'),
+     path('blog/<int:pk>',views.BlogDetalle.as_view() , name = 'blog_detalle'),
+     path('blog/<int:pk>/editar',views.BlogEditar.as_view() , name = 'blog_editar'),
+     path('blog/<int:pk>/borrar/',views.BlogBorrar.as_view() , name = 'blog_borrar'),
+  
 ]
 

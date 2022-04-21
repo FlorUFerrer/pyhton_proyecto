@@ -1,0 +1,27 @@
+{%extends 'indice/index.html' %}
+
+{% block title %}
+<title>Editar BLOG</title>
+{% endblock title %}
+
+
+{% block header %}
+
+  <p class="urlVolver ">
+    <a href= {% url 'posteos' %}>Volver a todos los posteos</a>    
+  </p>
+  <div class="container-post">
+      <div class="container-card">
+        <div class="card" style="width: 22rem;">
+              <form  method="post" class="form_editar">
+                    {% csrf_token %}
+                    {{form}}
+                  <button type="submit" class="btn btn-primary">Enviar</button>
+              </form>
+        </div>
+    </div>
+ </div>
+  
+       
+     
+{% endblock header %}

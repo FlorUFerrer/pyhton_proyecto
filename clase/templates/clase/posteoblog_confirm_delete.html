@@ -1,14 +1,14 @@
 {%extends 'indice/index.html' %}
 
 {% block title %}
-<title>Posteos</title>
+<title>Borrar Posteo</title>
 {% endblock title %}
 
 
 {% block header %}
 
     <p class="urlVolver ">
-        <a href= {% url 'posteos' %}>Volver a todos los posteos</a>    
+        <a href= {% url 'blogs' %}>Volver a todos los posteos</a>    
     </p>
     <div class="container-post">
        <form method ="post" class="form_editar">
@@ -16,7 +16,7 @@
            <p class="letraBlog letraBlog2"> ¿Confirma que quiere borrar el posteo?</p> 
             <div class="botones">
                 <input class="btn btn-success" type= "submit" value="CONFIRMAR">
-                <a href= {% url 'posteos' %} class="btn btn-danger">CANCELAR</a>  
+                <a href= {% url 'blogs' %} class="btn btn-danger">CANCELAR</a>  
             </div>    
         </form>
     </div> 

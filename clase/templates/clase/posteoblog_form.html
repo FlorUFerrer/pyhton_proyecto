@@ -1,21 +1,23 @@
 {%extends 'indice/index.html' %}
 
 {% block title %}
-<title>Editar Posteo</title>
+<title>Crear Blog</title>
 {% endblock title %}
 
 
 {% block header %}
 
   <p class="urlVolver ">
-    <a href= {% url 'posteos' %}>Volver a todos los posteos</a>    
-  </p>
+    <a href= {% url 'blogs' %}>Volver a todos los posteos</a>    
+  </p> 
   <div class="container-post">
       <div class="container-card">
-        <div class="card" style="width: 22rem;">
+        <div class="card" >
               <form  method="post" class="form_editar">
-                    {% csrf_token %}
-                    {{form.as_p}}
+                <p>DATE:AÑO/MES/DIA</p>
+                {% csrf_token %}
+                {{form.as_p}}
+                    {{form.media}}
                   <button type="submit" class="btn btn-primary">Enviar</button>
               </form>
         </div>

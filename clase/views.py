@@ -101,33 +101,89 @@ def borrar_usuario (request , id):
      return redirect('listado_usuarios')
 
 
-
-class Posteos(ListView):
-    model = Posteo
-    template_name = 'clase/posteos.html'
+####################################################
 
 
-class PosteoDetalle(DetailView):
-    model = Posteo
-    template_name = 'clase/posteo_datos.html'
 
 
-class PosteoCrear(CreateView):
-    model = Posteo
-    success_url = '/clase/posteos'
-    fields =[ 'titulo' , 'texto']
+class Blogs(ListView):
+    model = PosteoBlog
+    template_name = 'clase/blogs.html'
 
 
-class PosteoEditar(UpdateView):
-    model = Posteo
-    success_url = '/clase/posteos'
-    fields =[ 'titulo' , 'texto']
+
+class BlogCrear(CreateView):
+     model = PosteoBlog
+     success_url = '/clase/blogs'
+     fields =['titulo' , 'subtitulo','mascota','autor','date','image','texto']
 
 
-class PosteoBorrar(DeleteView):
-    model = Posteo
-    success_url= '/clase/posteos'
+
+class BlogDetalle(DetailView):
+    model = PosteoBlog
+    template_name = 'clase/blog_datos.html'
+
+
+
+class BlogEditar(UpdateView):
+    model = PosteoBlog
+    success_url = '/clase/blogs'
+    fields =['titulo' , 'subtitulo','mascota','autor','date','image','texto']
+
+
+
+
+class BlogBorrar(DeleteView):
+    model = PosteoBlog
+    success_url= '/clase/blogs'
    
+   ###########################################
+
+
+@login_required
+def crear_blog(request):
+    if request.method == 'POST':
+             formulario = FormularioBlog(request.POST, request.FILES)
+             if formulario.is_valid():
+                 data= formulario.cleaned_data   
+                 nuevo_blog = PosteoBlog(titulo = data['titulo'], subtitulo = data['subtitulo'], autor= request.user.username, mascota= data['mascota'], date= datetime.date.today(), texto= data['texto'], image= data['image'])   
+                 nuevo_blog.save()  
+             return redirect('inicio')
+                
+    formulario = FormularioBlog()
+    return render(
+        request, 'clase/crear_blog.html',
+        {'formulario' : formulario}
+       
+    )
+
+
+
+
+
+
+# class Blog(ListView):
+#     model = PosteoBlog
+#     template_name = 'clase/blog.html'
+
+# class BlogDetalle(DetailView):
+#     model = PosteoBlog
+#     template_name = 'clase/blog_datos.html'
+
+
+# class BlogEditar(UpdateView):
+#     model = PosteoBlog
+#     success_url = '/clase/blog'
+#     fields =[ 'titulo' , 'texto']
+
+
+# class BlogBorrar(DeleteView):
+#     model = PosteoBlog
+#     success_url= '/clase/blog'
+
+
+
+
 
 ########################POSTEO BLOG#########################################
 

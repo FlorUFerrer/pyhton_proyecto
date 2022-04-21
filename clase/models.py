@@ -31,11 +31,11 @@ class PosteoBlog (models.Model):
     mascota = models.CharField(max_length=30)
     autor = models.CharField(max_length=30)
     date = models.DateField()
-    texto = RichTextField(null=True, blank=True)
-    image = models.ImageField(upload_to='images/blogs/', null=True, blank=True)
+    texto = RichTextField(blank=True , null=True )
+    image = models.ImageField(upload_to='images/', null=True, blank=True)
     
     def __str__(self):
-            return f"{self.titulo} - Mi posteo: {self.texto}"
+            return f"{self.titulo} {self.texto} {self.date}{self.image} {self.mascota}"
 
 
 class Mascota (models.Model):

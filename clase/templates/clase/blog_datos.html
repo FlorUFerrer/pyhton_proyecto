@@ -1,0 +1,27 @@
+{%extends 'indice/index.html' %}
+
+{% block title %}
+<title>Blog detalle</title>
+{% endblock title %}
+
+
+{% block header %}
+
+     <p class="urlVolver ">
+        <a href= {% url 'blogs' %}>Volver a todos los posteos</a>    
+    </p>
+    <div class="container-post">
+        <div class="container-card">
+            <div class="card" style="width: 20rem;">
+                <img src="..." class="card-img-top" alt="IMAGEN">
+                <div class="card-body">
+                    <h5 class="card-title letraBlog">{{object.titulo}}</h5>
+                    <h5 class="card-title letraBlog">{{object.subtitulo}}</h5>
+                    <h5 class="card-title letraBlog">{{object.image}}</h5>
+                    <h5 class="card-title letraBlog">{{object.mascota}}</h5>
+             
+                 </div>
+            </div>
+        </div>
+    </div>
+{% endblock header %}
