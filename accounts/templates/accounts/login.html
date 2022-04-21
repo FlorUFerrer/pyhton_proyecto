@@ -2,16 +2,19 @@
 
 
 {% block header %}
-        <div>ACA ABAJO HAY UN FORMULARIO DE DJANGO</div>
-  
+
+   <div class="container-post">
+            <div class="container-registro"> 
         {% if msj  %}
-            {{msj}}
+          <p >{{msj}}</p>
+     
         {% endif %}
-        <form action="" method="post">
+        <form action="" method="post" class="form_editar">
             {% csrf_token %}
             {{form.as_p}}
             <button class="btn btn-primary">Loguearse</button>
         </form>
- 
+    </div>
+</div>
 
 {% endblock header %}

@@ -21,7 +21,7 @@ def UsuarioLogin(request):
 
               if user is not None:
                      login(request, user)
-                     return render(request , 'indice/index.html', {'msj': 'Estas logueado !'})
+                     return render(request , 'indice/index.html', {'msj': f'Bienvenido {username} !'})
               else:
                 return render(request , 'accounts/login.html', {'form': form ,'msj': 'No se autenticó'})           
        else:
@@ -40,7 +40,7 @@ def registrar(request):
        if form.is_valid():
              username = form.cleaned_data['username']
              form.save()
-             return render(request , 'indice/index.html', {'msj': f'Se creo el user {username} '})
+             return render(request , 'indice/index.html', {'msj': f'Usuario {username} registrado correctamente! '})
        else:
            return render(request , 'accounts/registrar.html', {'form': form , 'msj': 'Datos incorrectos'})       
 

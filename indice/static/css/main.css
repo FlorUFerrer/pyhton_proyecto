@@ -106,7 +106,7 @@
 }
 
 .container-logout h1{
-    color : red;
+    color : rgb(12, 11, 11);
 }
 
 .imgLogo{
@@ -184,4 +184,24 @@
 
 .btn-guardar{
     margin-top: 5px;
+}
+
+.form_editar2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-items: flex-end;
+}
+
+.container-registro{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 5px 5px 15px 5px black;
+    padding: 15px;
+}
+
+
+.titulo-registro{
+    padding: 20px;
 }
