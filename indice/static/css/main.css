@@ -136,6 +136,10 @@
     font-family:'Courier New', Courier, monospace;
 }
 
+.letraBlog2{
+    font-size: x-large;
+}
+
 .urlVolver{
     display: flex;
     margin-top: 5px;    
@@ -157,7 +161,8 @@
 .form_editar{
     display: flex;
     flex-direction: column;
-    align-items: center
+    align-items: center;
+    
 }
 
 .avatar{
@@ -170,3 +175,13 @@
 .navbar-expand-lg .navbar-collapse {
     justify-content: flex-end;
   }
+
+.botones{
+    display: flex;
+    flex-direction: row;
+    gap:5px;
+}
+
+.btn-guardar{
+    margin-top: 5px;
+}

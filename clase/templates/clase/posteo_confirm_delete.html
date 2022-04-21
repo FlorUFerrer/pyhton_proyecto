@@ -7,14 +7,18 @@
 
 {% block header %}
 
-<p class="urlVolver ">
-    <a href= {% url 'posteos' %}>Volver a todos los posteos</a>    
-</p>
-       <form method ="post">
+    <p class="urlVolver ">
+        <a href= {% url 'posteos' %}>Volver a todos los posteos</a>    
+    </p>
+    <div class="container-post">
+       <form method ="post" class="form_editar">
            {% csrf_token %}
-        Confirma el borrrar?
-        <input type= "submit" value="Confirmo">
-    </form>
-
+           <p class="letraBlog letraBlog2"> ¿Confirma que quiere borrar el posteo?</p> 
+            <div class="botones">
+                <input class="btn btn-success" type= "submit" value="CONFIRMAR">
+                <a href= {% url 'posteos' %} class="btn btn-danger">CANCELAR</a>  
+            </div>    
+        </form>
+    </div> 
 
 {% endblock header %}
