@@ -7,14 +7,30 @@
 
 {% block header %}
 
-<p>
+    <p class="urlVolver ">
+        <a href= {% url 'posteos' %}>Volver a todos los posteos</a>    
+    </p>
+    <div class="container-post">
+        <div class="container-card">
 
-     <a href= {% url 'posteos' %}>Volver a todos los posteos</a>    
- </p>
-
-     {{object.titulo}}
-   
-     {{object.texto}}
+            <div class="card" style="width: 20rem;">
+                <img src="..." class="card-img-top" alt="IMAGEN">
+                <div class="card-body">
+                <h5 class="card-title letraBlog">{{posteo.titulo}}</h5>
+                <h5 class="card-title letraBlog">{{posteo.titulo}}subtitulo</h5>
+                <p class="card-text letraBlog">{{posteo.texto}}</p>
+            
+                
+                
+                {% if request.user.is_authenticated %}
+                <a href= {% url 'posteo_editar' posteo.id %} class="btn btn-success">Editar</a>    
+                <a href= {% url 'posteo_borrar' posteo.id %} class="btn btn-danger">Borrar</a>    
+                {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    
 
 
 {% endblock header %}

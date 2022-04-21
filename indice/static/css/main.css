@@ -1,0 +1,172 @@
+.fondoAboutme{
+    background-color: rgb(226, 235, 242);
+}
+
+.title{
+    padding: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 50px; 
+}
+
+.me-photo{
+    height: 250px;
+    width: 200px;
+    border-radius: 100%;
+}
+
+
+.container div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.container div span {
+    color: red;
+}
+
+.container-font div p{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 30px;
+}
+
+.dog{
+    width: 250px;
+    height: 250px;
+    border-radius: 100%;
+}
+
+.cat{
+    width: 250px;
+    height: 250px;
+    border-radius: 80%;
+}
+
+.video{
+    
+    width: 200px;
+    height: auto;
+    border-radius: 40%; 
+}
+
+.walker{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 30px;
+}
+
+.study {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 30px;
+    align-items: center
+    
+}
+.study p{
+    
+    justify-content: center;
+    width: 50%;
+    text-align: center;
+}
+
+.home{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.home{
+    margin: 50px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+    border: solid 1px black;
+}
+
+.home ul li{
+    color:rgb(142,155,175);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+}
+.home ul li span{
+    color:black;
+}
+
+.meet{
+    font-size: 40px;  
+}
+
+.container-logout{
+    display: flex;
+    
+}
+
+.container-logout h1{
+    color : red;
+}
+
+.imgLogo{
+    width: 60px;
+    height: 60px; 
+    margin-left: 10px;
+    padding: 5px;
+}
+
+
+.imgCard{
+    width: 100px;
+    height: 100px; 
+}
+
+.container-post{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 50px;
+    justify-content: space-around;
+    margin: 10px;
+}
+
+.letraBlog{
+    font-weight: 900;
+    font-family:'Courier New', Courier, monospace;
+}
+
+.urlVolver{
+    display: flex;
+    margin-top: 5px;    
+}
+.urlVolver a{
+    box-shadow: 0px 0px 15px 0px black;
+    background-color: rgb(127, 151, 218);
+    list-style: none;
+    text-decoration: none;
+    padding: 10px;
+    font-weight: bolder;
+    color: rgb(202, 216, 228);
+}
+
+.urlVolver a:hover{
+    color: rgb(7, 111, 49);
+}
+
+.form_editar{
+    display: flex;
+    flex-direction: column;
+    align-items: center
+}
+
+.avatar{
+    border-radius: 100%;
+    box-shadow: 0px 0px 10px 0px rgb(34, 39, 182);
+    height :50px;
+}
+
+
+.navbar-expand-lg .navbar-collapse {
+    justify-content: flex-end;
+  }
