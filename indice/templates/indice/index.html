@@ -18,7 +18,6 @@
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href={% static "css/styles.css" %} rel="stylesheet" />
-        <link href={% static "css/mystyles.css" %} rel="stylesheet" />
         <link href={% static "css/main.css" %} rel="stylesheet" />
      
     </head>
@@ -37,18 +36,18 @@
                   <li class="nav-item">
                     <a class="navbar-brand" href= {% url 'about' %}>Acerca de mí</a>
                   </li>
-                  {% comment %} <li class="nav-item">
-                    <a class="navbar-brand" href= {% url 'listado_usuarios' %}>Lista usuarios</a>
-                  </li> {% endcomment %}
                   <li class="nav-item">
-                    <a class="navbar-brand" href={% url 'posteos' %}>Posteos</a>
-                  </li>
+                      <a class="navbar-brand" href={% url 'posteos' %}>Posteos</a>
+                    </li>
                   {% comment %} <li class="nav-item">
-                    <a class="navbar-brand" href= {% url 'busqueda' %}>Buscar</a>
-                  </li> {% endcomment %}
-
-                {% if request.user.is_authenticated %}
-                  {% comment %} <li class="nav-item">
+                        <a class="navbar-brand" href= {% url 'busqueda' %}>Buscar</a>
+                    </li>  {% endcomment %}
+                    
+                    {% if request.user.is_authenticated %}
+                    {% comment %} <li class="nav-item">
+                      <a class="navbar-brand" href= {% url 'listado_usuarios' %}>Lista usuarios</a>
+                    </li> {% endcomment %}
+                    {% comment %} <li class="nav-item">
                    <a class="navbar-brand" href= '#' {% url 'usuario' %}>Perfil</a>
                   </li> {% endcomment %}
                   <li class="nav-item">
@@ -56,7 +55,7 @@
                  </li>
                   <li class="nav-item">
                       <a class="navbar-brand" href= {% url 'editar_usuario' %}>
-                          <img class="avatar" src="{{url_avatar}}" alt="avatar" >
+                          <img  src="{{url_avatar}}" alt="avatar" class="avatar" >
                       </a>
                   </li>
                 {% else %}

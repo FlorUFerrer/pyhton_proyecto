@@ -25,6 +25,6 @@ class EditarUser(forms.Form):
     password2 = forms.CharField(label = 'Repetir contraseña', widget = forms.PasswordInput())
     first_name = forms.CharField(label= 'Nombre' , max_length=20 , required=False )
     last_name = forms.CharField(label= 'Apellido' , max_length=20, required=False )
-
+    avatar = forms.ImageField(label='Cambiar avatar', required=False)
  
       

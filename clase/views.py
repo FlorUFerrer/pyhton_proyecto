@@ -1,12 +1,14 @@
 from sre_constants import SUCCESS
 from django.http import HttpResponse
 from django.shortcuts import render , redirect
-from clase.models import Usuario, Posteo
-from clase.forms import BusquedaUsuario, UsuarioFormulario 
+from clase.models import Usuario, Posteo , PosteoBlog
+from clase.forms import BusquedaUsuario, FormularioBlog, UsuarioFormulario 
 from django.views.generic import ListView , DetailView
 from django.views.generic.edit import UpdateView , DeleteView , CreateView
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+import datetime
+from indice.views import usuario_avatar
 
 # Create your views here.
 
@@ -126,3 +128,62 @@ class PosteoBorrar(DeleteView):
     model = Posteo
     success_url= '/clase/posteos'
    
+
+########################POSTEO BLOG#########################################
+
+
+# @login_required
+# def crear_blog(request):
+#     if request.method == 'POST':
+#         form = FormularioBlog(request.POST, request.FILES)
+        
+#         if form.is_valid():
+#             data = form.cleaned_data
+#             blog = PosteoBlog(titulo=data['titulo'], subtitulo=data['subtitulo'], mascota=request.user.username, date=datetime.date.today(), texto=data['texto'], imagen=data['imagen'])
+#             blog.save()
+#             return redirect('inicio')
+    
+#     form = FormularioBlog()
+#     return render(request, "clase/blog.html", {'form': form, 'url_avatar' :  usuario_avatar(request)})
+
+# class BlogDetalle(DetailView):
+#     model = PosteoBlog
+#     template_name = "index/blog.html"
+    
+#     def get_context_data(self, **kwargs):
+#         context = super().get_context_data(**kwargs)
+#         context['url_avatar'] = usuario_avatar(self.request)
+#         return context
+
+
+# class BlogEditar(UpdateView):
+#     model = PosteoBlog
+#     success_url = '/pages'
+#     fields = ['titulo', 'subtitulo', 'texto', 'imagen']        
+    
+#     def get_context_data(self, **kwargs):
+#         context = super().get_context_data(**kwargs)
+        
+#         query_set = self.get_object()
+#         if(query_set.image):
+#             context['blog_image'] = query_set.image.url
+
+#         context['url_avatar'] = usuario_avatar(self.request)
+#         context['form'].fields['titulo'].label = 'Título'
+#         context['form'].fields['subtitulo'].label = 'Subtítulo'
+#         context['form'].fields['texto'].label = 'Contenido'
+#         context['form'].fields['imagen'].label = 'Imagen'
+#         # context['form'].fields['image'].widget.clear_checkbox_label = 'Eliminar'
+#         # context['form'].fields['image'].widget.initial_text = 'Imagen actual'
+#         # context['form'].fields['image'].widget.input_text = 'Cambiar'
+#         return context
+
+
+# class BlogBorrar(DeleteView):
+#     model = PosteoBlog
+#     success_url = '/pages'
+    
+#     def get_context_data(self, **kwargs):
+#         context = super().get_context_data(**kwargs)
+#         context['url_avatar'] = usuario_avatar(self.request)
+#         return context

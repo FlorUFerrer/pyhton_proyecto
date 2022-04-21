@@ -20,10 +20,23 @@ class Posteo (models.Model):
     #subtitulo = models.CharField(max_length=50)
     texto = models.CharField(max_length=300)
  
-  
 
     def __str__(self):
         return f" {self.titulo} - Mi posteo: {self.texto}"
+
+        
+class PosteoBlog (models.Model):
+    titulo = models.CharField(max_length=100)
+    subtitulo = models.CharField(max_length=100)
+    mascota = models.CharField(max_length=30)
+    autor = models.CharField(max_length=30)
+    date = models.DateField()
+    texto = RichTextField(null=True, blank=True)
+    image = models.ImageField(upload_to='images/blogs/', null=True, blank=True)
+    
+    def __str__(self):
+            return f"{self.titulo} - Mi posteo: {self.texto}"
+
 
 class Mascota (models.Model):
     nombre = models.IntegerField
