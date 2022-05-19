@@ -1,6 +1,4 @@
-from mailbox import NoSuchMailboxError
 from django.db import models
-from django.forms import CharField
 from ckeditor.fields import RichTextField
 # Create your models here.
 
@@ -14,15 +12,15 @@ class Usuario (models.Model):
     def __str__(self):
         return f" Nombre: {self.nombre} - Apellido: {self.apellido} - E-mail: {self.email}"
 
-class Posteo (models.Model):
-    numero = models.IntegerField
-    titulo = models.CharField(max_length=50)
-    #subtitulo = models.CharField(max_length=50)
-    texto = models.CharField(max_length=300)
+# class Posteo (models.Model):
+#     numero = models.IntegerField
+#     titulo = models.CharField(max_length=50)
+#     #subtitulo = models.CharField(max_length=50)
+#     texto = models.CharField(max_length=300)
  
 
-    def __str__(self):
-        return f" {self.titulo} - Mi posteo: {self.texto}"
+#     def __str__(self):
+#         return f" {self.titulo} - Mi posteo: {self.texto}"
 
         
 class PosteoBlog (models.Model):

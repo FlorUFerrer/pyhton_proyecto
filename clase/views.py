@@ -1,12 +1,12 @@
-from sre_constants import SUCCESS
+
 from django.http import HttpResponse
 from django.shortcuts import render , redirect
-from clase.models import Usuario, Posteo , PosteoBlog
+from clase.models import Usuario, PosteoBlog
 from clase.forms import BusquedaUsuario, FormularioBlog, UsuarioFormulario 
 from django.views.generic import ListView , DetailView
 from django.views.generic.edit import UpdateView , DeleteView , CreateView
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.mixins import LoginRequiredMixin
+
 import datetime
 from indice.views import usuario_avatar
 
