@@ -6,6 +6,7 @@ from clase.forms import BusquedaUsuario, FormularioBlog, UsuarioFormulario
 from django.views.generic import ListView , DetailView
 from django.views.generic.edit import UpdateView , DeleteView , CreateView
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 import datetime
 from indice.views import usuario_avatar
@@ -112,11 +113,11 @@ class Blogs(ListView):
 
 
 
-class BlogCrear(CreateView):
+class BlogCrear(LoginRequiredMixin ,CreateView ):
      model = PosteoBlog
      success_url = '/clase/blogs'
      fields =['titulo' , 'subtitulo','mascota','autor','date','image','texto']
-
+     
 
 
 class BlogDetalle(DetailView):
@@ -125,7 +126,7 @@ class BlogDetalle(DetailView):
 
 
 
-class BlogEditar(UpdateView):
+class BlogEditar(LoginRequiredMixin ,UpdateView):
     model = PosteoBlog
     success_url = '/clase/blogs'
     fields =['titulo' , 'subtitulo','mascota','autor','date','image','texto']

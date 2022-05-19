@@ -205,3 +205,7 @@
 .titulo-registro{
     padding: 20px;
 }
+
+.out{
+    box-shadow: 10px 5px 5px black;
+}

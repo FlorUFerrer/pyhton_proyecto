@@ -14,7 +14,7 @@
       <div class="container-card">
         <div class="card" >
               <form  method="post" class="form_editar" enctype="multipart/form-data">
-                <p>DATE:AÑO/MES/DIA</p>
+                <p>Formato de fecha:AÑO-MES-DIA</p>
                     {% csrf_token %}
                     {{form.as_p}}
                     {{form.media}}
