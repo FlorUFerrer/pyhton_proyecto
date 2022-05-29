@@ -9,8 +9,8 @@ El Blog gatitos tiene rutas a diferentes paginas
  
 ## Navegacion y uso
 
-En la sección FORM se podrá crear un nuevo usuario.
-Podra entrar al ADMIN para corroborar su entrada o buscarlo en la seccion SEARCH.
-
-En la seccion SEARCH podra buscar cualquier dato que necesite de los usuarios agregados (mostrara , nombre, apellido, email)
+- En la sección FORM se podrá crear un nuevo usuario.
+- Podrá entrar al ADMIN para corroborar su entrada .
+- Una vez logueado podrá crear posteos , editar y borrar.
+- Los usuarios no logueados solo pueden ver detalles de los posteos.
 
