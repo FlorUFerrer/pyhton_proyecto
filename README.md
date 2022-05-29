@@ -14,3 +14,4 @@ El Blog gatitos tiene rutas a diferentes paginas
 - Una vez logueado podrá crear posteos , editar y borrar.
 - Los usuarios no logueados solo pueden ver detalles de los posteos.
 
+Video : https://drive.google.com/file/d/1w6vO6xrVAt7Wf-1M6hIT0eXFRbH9YETJ/view?usp=sharing
